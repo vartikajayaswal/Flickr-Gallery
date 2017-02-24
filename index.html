@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="flickr_Gallery">
+
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <link rel="stylesheet" href="css/style.css" />
+        
+        <script src="https://www.atlasestateagents.co.uk/javascript/tether.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+        <title>Flickr Assignment</title>
+    </head>
+
+    <body class= "body" ng-controller="mainController">
+        <header class="container">
+            <nav id="mainNav">
+                <nav id="mainNav" class="navbar navbar-inverse" role="navigation">
+                    <div class="navbar-header">
+                        <p class="flickFont">Flickr Gallery</p> 
+                    </div>
+                    <div class="collapse navbar-collapse" id="mainMenu">
+                        <ul class="nav navbar-nav"></ul>
+                        <form class="navbar-form navbar-right" role="search" style="margin-right:5%">
+                           <div class ="form-group">
+                            <div class="searchPanel">
+                                <input class="form-control input-lg" ng-model="search" ng-change="searchFlickr()" placeholder="Search Tag..." />
+                            </div>
+                            </div>
+                        </form>
+                    </div>
+                </nav>
+            </nav>
+            <div class = "resultNotFound">
+                <div ng-if="!data.length && search">
+                    No Results Found
+                </div>
+            </div>
+    
+            <div>
+                <table class="table table-striped table-hover table-condensed table-inverse" ng-if="data.length && search">
+                    <tbody>
+                      <tr>
+                        <th style="padding-left: 10%">Image</th>
+                        <th>User</th>
+                        <th>Date of Upload</th>
+                      </tr>
+                      <tr ng-repeat="d in data">
+                        <td style="padding-left: 10%">
+                          <a ng-href="{{(d.media.m).replace('_m.jpg', '_h.jpg')}}" target="_blank">
+                            <img ng-if="d.link" class="img-rounded"  style="height:70px;width:70px" ng-src="{{d.media.m}}" />
+                          </a>
+                        </td>
+                        <td style="width: 35%;padding-top: 30px;padding-bottom: 30px;">{{d.author}}</td>
+                        <td style="width: 35%;padding-top: 30px;padding-bottom: 30px;">{{d.published | date : 'dd/MM/yyyy HH:MM'}}</td>
+                      </tr>
+                    </tbody>
+                </table>
+            </div>
+        </header>
+    </body>        
+       
+    <script src="js/mainController.js"></script>
+</html>

@@ -1,0 +1,41 @@
+.body{
+    background-color: #aebec1;
+  	color: #651a1a;
+    padding:20px;
+/*    font-weight: bolder;*/
+}
+
+.searchPanel{
+    margin-top:30px;
+    margin-bottom:30px;
+}
+
+.flickFont{
+    color: #9d9d9d;
+    font-size: 277%;
+    width: 151%;
+    padding-top: 14%;
+    padding-left: 15%;
+}
+
+.table>tbody>tr>th{
+    color: white;
+}
+
+.table>tbody>tr>td{
+    padding-top: 30%;
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td, 
+.table-striped>tbody>tr:nth-child(odd)>th {
+   background-color: #919ea0;
+ }
+
+.table tbody tr:hover td{
+    background-color: gainsboro;
+}
+
+.resultNotFound{
+    text-align: center;
+    font-size: 200%;
+}
